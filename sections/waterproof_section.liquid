@@ -1,0 +1,74 @@
+    
+    {% assign ksrc = section.settings.video | split: '/'| last %}
+    
+    {% if section.settings.video contains 'youtube'%}
+    	{% assign vsrc="http://www.youtube.com/embed/" %}
+    {% endif %}
+    {% if section.settings.video contains 'vimeo'%}
+    	{% assign vsrc="http://player.vimeo.com/video/" %}
+    {% endif %}    
+    {% if section.settings.video contains 'dai.ly'%}
+    	{% assign vsrc="http://www.dailymotion.com/embed/video/" %}
+    {% endif %}    
+    
+	
+ 	
+      
+
+
+
+
+
+
+    <div class="waterproof_section">
+        <div class="waterproof_title">{{section.settings.title}}</div>
+        <div class="waterproof_content">{{section.settings.content}}</div>
+        <div class="waterproof_image"><img  src="{{ section.settings.image | img_url:'500x500' }}"   ></div>
+        <div class="waterproof_video"><a class="waterproof_video_play" href="{{ vsrc }}{{ksrc}}" data-fancybox-type="iframe"><img  src="{{ 'button-play-video.png' | asset_url }}"/></a></div>
+    </div>
+
+
+	 
+    <script type="text/javascript">
+        $(document).ready(function() {
+        $(".waterproof_video_play").fancybox();
+        });
+    </script>
+{% schema %}
+  {
+    "name": "Waterproof",
+    "settings": [
+    {
+		"id": "title",
+      	"type": "text",
+      	"label": "Title",
+      	"default": "Waterproof"
+	},
+	{
+		"id": "content",
+      	"type": "textarea",
+      	"label": "Description",
+      	"default": "Description"
+	},
+	{
+		"id": "image",
+      	"type": "image_picker",
+      	"label": "Image",
+        "info": "Upload an image to be added to the image gallery on the homepage"
+	},
+    {
+		"id": "video",
+      	"type": "text",
+      	"label": "The embeded link of Youtube or others",
+        "info": "Embeded video link"
+	}
+
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

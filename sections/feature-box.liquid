@@ -1,0 +1,94 @@
+{% assign  block1=section.blocks[0] %}
+{% assign  block2=section.blocks[1] %}
+{% assign  block3=section.blocks[2] %}
+{% assign  block4=section.blocks[3] %}
+   <div class="sixteen colums">
+    <div class="one columns">&nbsp;</div>
+    <div class="seven columns"  >
+    <div class="two columns feature_img"  > 
+   		<img class="feature_img" src="{{ block1.settings.image | img_url:'175x175' }}"  width=175px height=175px >
+
+    </div>
+    <div class="four columns">
+      <div class="feature_title">{{ block1.settings.title }}</div>
+      <div class="feature_comment">{{ block1.settings.comment }}</div>
+    </div>
+   </div>
+   <div class="seven columns"  >
+    <div class="two columns feature_img" > 
+   		<img  src="{{ block2.settings.image | img_url:'175x175' }}"  width=175px height=175px >
+
+    </div>
+    <div class="four columns">
+      <div class="feature_title">{{ block2.settings.title }}</div>
+      <div class="feature_comment">{{ block2.settings.comment }}</div>
+    </div>
+   </div>    
+    
+  </div>
+ <div class ="section clearfix"> </div>
+  <div class="sixteen colums  ">
+   <div class="one columns">&nbsp;</div> 
+   <div class="seven columns" >
+    <div class="two columns feature_img"  > 
+   		<img  src="{{ block3.settings.image | img_url:'175x175' }}"  width=175px height=175px >
+
+    </div>
+    <div class="four columns">
+      <div class="feature_title">{{ block3.settings.title }}</div>
+      <div class="feature_comment">{{ block3.settings.comment }}</div>
+    </div>
+   </div>
+   <div class="seven columns"  >
+    <div class="two columns feature_img"  > 
+   		<img  src="{{ block4.settings.image | img_url:'175x175' }}"  width=175px height=175px >
+
+    </div>
+    <div class="four columns">
+      <div class="feature_title">{{ block4.settings.title }}</div>
+      <div class="feature_comment">{{ block4.settings.comment }}</div>
+    </div>
+   </div>    
+    
+  </div>  
+ {% schema %}
+  {
+    "name": "Four features",
+	"blocks": [
+      {
+		  "name": "Part",
+		  "type": "quote",
+
+          "settings": [
+            {
+              "id": "title",
+              "type": "text",
+              "label": "Title",
+              "default": "Waterproof"
+            },
+            {
+              "id": "comment",
+              "type": "textarea",
+              "label": "Description",
+              "default": "Waterproof is ..."
+            },
+
+            {
+               "id": "image",
+               "type": "image_picker",
+                "label": "Image",
+                "info": "Upload an image to be added to the image gallery on the homepage"
+
+             }
+
+    	]
+	  }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
